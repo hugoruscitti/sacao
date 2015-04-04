@@ -53,6 +53,15 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+ENV.imgManager = {
+  maxTries: 1,
+  delay: 1500,
+  batchSize: 1,
+  lazyLoad: true,
+  loadingClass: 'loader',
+  successClass: 'success',
+  errorClass: 'error'
+};
 
   return ENV;
 };

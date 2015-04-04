@@ -1,3 +1,20 @@
-<img src='images/emberjs.png'>
-<img src='images/nwjs.png'>
+<h1>Mis Juegos</h1>
+
+
+{{#each p in model}}
+  <div class='juego'>
+    {{img-wrap src=p.url alt="Landscape"}}
+    <div class='juego-overlay'>
+      <div class='juego-title'>
+        {{p.name}}
+      </div>
+      <button class='btn btn-success'>Jugar</button>
+    </div>
+  </div>
+{{else}}
+  <p>No hay juegos aún ...</p>
+{{/each}}
+
+
+
 {{outlet}}

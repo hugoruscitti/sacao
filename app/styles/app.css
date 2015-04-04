@@ -1,7 +1,78 @@
-html, body {
-  margin: 20px;
+@import "bootstrap.css";
+@import "loader.css";
+
+
+body {
+  padding: 10px;
 }
 
-a.active {
-  font-weight: bold;
+
+.juego {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  box-shadow: 0 0 5px black;
+  margin: 10px;
+  padding: 2px;
+}
+
+.juego img {
+  width: 100%;
+  height: auto;
+}
+
+
+.juego-title {
+  position: absolute;
+  left: 11px;
+  top: 14px;
+}
+
+.juego-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: right;
+  background-color: rgba(44, 44, 44, 0.72);
+  padding: 5px;
+  border-top: 1px solid black;
+}
+
+
+
+.spin {
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  -o-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -6,6 +6,8 @@
     "title": "sacao",
     "width": 800,
     "height": 500,
+    "min_width": 780,
+    "min_height": 450,
     "toolbar": true,
     "position": "center"
   }
