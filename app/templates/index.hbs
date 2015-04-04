@@ -2,15 +2,7 @@
 
 
 {{#each p in model}}
-  <div class='juego'>
-    {{img-wrap src=p.url alt="Landscape"}}
-    <div class='juego-overlay'>
-      <div class='juego-title'>
-        {{p.name}}
-      </div>
-      <button class='btn btn-success'>Jugar</button>
-    </div>
-  </div>
+  {{#sacao-localGame model=p}}{{/sacao-localGame}}
 {{else}}
   <p>No hay juegos aún ...</p>
 {{/each}}

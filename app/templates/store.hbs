@@ -5,27 +5,25 @@
   desde nuestra base de datos.</p>
 
 
-<button {{action 'getGameList'}} class='btn btn-info'>Solicitar juegos</button>
 
+<div>
 {{#if areSearching}}
-  Buscando ...
+  <button disabled class='btn btn-info'><i class="glyphicon glyphicon-refresh spin"></i> Solicitar juegos</button>
 {{else if areNull}}
-  Null
+  <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
 {{else if areDone}}
-
-  <p>Hay {{gamelist.total}} juegos publicados en la base de datos remota.</p>
-
-  Done
+  <button {{action 'getGameList'}} class='btn btn-info'> Volver a solicitar juegos</button>
 {{else if hasError}}
-  error
+  <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
+
+  <p>
+    <div class='alert alert-warning'>Ha ocurrido un error, por favor re-intente
+      conectado a Internet.</div>
+  </p>
 {{/if}}
+</div>
 
 
 {{#each game in gamelist.results}}
-  {{game.title}}
-  {{game.nick}}
-
-  <img src='{{game.image.url}}'>
-
-  <a href='http://104.131.245.133:9841/uploads/roms/{{game.file.filename}}'>download</a>
+  {{#sacao-remoteGame model=game}}{{/sacao-remoteGame}}
 {{/each}}

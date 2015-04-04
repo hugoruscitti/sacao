@@ -22,12 +22,16 @@ export default Ember.Controller.extend({
 
   actions: {
     getGameList: function() {
+      this.set('gameList', []);
       this.set('status', 'searching');
 
       jQuery.get('http://104.131.245.133:9841/games.json')
         .then(function(data){
           this.set('gamelist', data.games);
           this.set('status', 'done');
+        }.bind(this))
+        .fail(function() {
+          this.set('status', 'error');
         }.bind(this));
     }
   }
