@@ -1,1 +1,31 @@
-{{outlet}}
+<h1>Instalar</h1>
+
+
+<p>Desde esta sección se pueden importar y descargar juegos
+  desde nuestra base de datos.</p>
+
+
+<button {{action 'getGameList'}} class='btn btn-info'>Solicitar juegos</button>
+
+{{#if areSearching}}
+  Buscando ...
+{{else if areNull}}
+  Null
+{{else if areDone}}
+
+  <p>Hay {{gamelist.total}} juegos publicados en la base de datos remota.</p>
+
+  Done
+{{else if hasError}}
+  error
+{{/if}}
+
+
+{{#each game in gamelist.results}}
+  {{game.title}}
+  {{game.nick}}
+
+  <img src='{{game.image.url}}'>
+
+  <a href='http://104.131.245.133:9841/uploads/roms/{{game.file.filename}}'>download</a>
+{{/each}}
