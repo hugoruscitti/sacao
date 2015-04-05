@@ -24,7 +24,7 @@ export default Ember.Service.extend({
   */
 
   updateUpdatesCounter: function() {
-    console.log("Consultando cantidad de tareas en estado 'running'...");
+    console.log("Consultando cantidad de tareas en estado 'running' ...");
 
     function only_running_filter(record) {
       return (record.get('status') === 'running');
