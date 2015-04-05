@@ -81,7 +81,6 @@ body {
   }
 }
 
-
 .sacao-tasks {
   margin: 10px;
 }
@@ -90,4 +89,13 @@ body {
   display: inline;
   margin-top: -7px;
   margin-left: -3px;
+}
+
+.alert {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sacao-updates {
+  display: inline;
 }

@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   borrando: false,
+
   actions: {
+
     loadFixture: function() {
       var records = [
         {
