@@ -1,7 +1,7 @@
 <h1>Mis Juegos</h1>
 
 
-{{#each p in model}}
+{{#each model as |p|}}
   {{#sacao-localGame model=p}}{{/sacao-localGame}}
 {{else}}
   <p>No hay juegos aún ...</p>

@@ -9,4 +9,5 @@ export default Router.map(function() {
   this.route('about');
   this.route('settings');
   this.route('store');
+  this.route('tasks');
 });

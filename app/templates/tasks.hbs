@@ -1,0 +1,17 @@
+<h1>Tareas</h1>
+
+<div>
+  <button class='btn btn-info' {{action 'clear'}}>Limpiar finalizadas</button>
+
+  <button class='btn btn-success' {{action 'makeTestTaskRunning'}}>Crear una tarea en progreso</button>
+  <button class='btn btn-warning' {{action 'makeTestTaskDone'}}>Crear una tarea finalizada</button>
+  <button class='btn btn-danger' {{action 'makeTestTaskError'}}>Crear una tarea erronea</button>
+</div>
+
+<div class='sacao-tasks'>
+  {{#each model as |task|}}
+    {{#sacao-task model=task}}{{/sacao-task}}
+  {{else}}
+    <p>No hay tareas pendientes por realizar...</p>
+  {{/each}}
+</div>

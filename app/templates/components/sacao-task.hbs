@@ -1,0 +1,30 @@
+
+
+  <div class="row">
+    <div class="col-xs-6">
+      {{model.title}}
+    </div>
+
+    <div class="col-xs-6">
+      {{#if isRunning}}
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="{{model.process}}" aria-valuemin="0" aria-valuemax="100" style="width: {{model.process}}%">
+            {{model.process}}%
+          </div>
+        </div>
+      {{else if isDone}}
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-success" role="progressbar" aria-valuenow="{{model.process}}" aria-valuemin="0" aria-valuemax="100" style="width: {{model.process}}%">
+            {{model.process}}%
+          </div>
+        </div>
+      {{else if isError}}
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-danger" role="progressbar" aria-valuenow="{{model.process}}" aria-valuemin="0" aria-valuemax="100" style="width: {{model.process}}%">
+            {{model.process}}%
+          </div>
+        </div>
+
+      {{/if}}
+    </div>
+  </div>

@@ -80,3 +80,14 @@ body {
     transform: rotate(360deg);
   }
 }
+
+
+.sacao-tasks {
+  margin: 10px;
+}
+
+.navbar-brand img {
+  display: inline;
+  margin-top: -7px;
+  margin-left: -3px;
+}

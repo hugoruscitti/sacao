@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   status: null, // valores posibles null|'searching'|'done'|'error'
   gamelist: [],
+  //store: Ember.inject.service(),
 
   areSearching: function() {
     return this.get('status') === 'searching';
