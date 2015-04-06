@@ -2,7 +2,13 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+    modals: {
+      layout: true,
+      style: true,
+      animation: 'scale'
+    }
+});
 
 app.import('app/styles/app.css');
 app.import('app/styles/bootstrap.css');

@@ -82,7 +82,7 @@ body {
 }
 
 .navbar-brand img {
-  display: inline;
+  display: inline !important;
   margin-top: -7px;
   margin-left: -3px;
 }
@@ -94,4 +94,12 @@ body {
 
 .sacao-updates {
   display: inline;
+}
+
+
+.modal-content {
+  background-color: white;
+  margin: 2em;
+  color: black;
+  padding: 10px;
 }

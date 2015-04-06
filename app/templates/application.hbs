@@ -32,12 +32,8 @@
 </div>
 
 
-<button class='btn btn-danger'{{action "toggleModal"}}>Toggle Modal</button>
+<div>
+  <button {{action "abrirModalNuevo"}} class='btn btn-warning'>Abrir el modal</button>
+</div>
 
-{{#if isShowingModal}}
-  {{#modal-dialog alignment='center'
-                  translucentOverlay=true}}
-    Oh hai there!
-    <button {{action 'close'}} name="button">X</button>
-  {{/modal-dialog}}
-{{/if}}
+{{outlet 'modal'}}

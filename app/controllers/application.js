@@ -3,11 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   notification: Ember.inject.service('notification'),
 
-  isShowingModal: false,
   actions: {
-    toggleModal: function(){
-      this.toggleProperty('isShowingModal');
-    }
+    abrirModalNuevo: function() {
+      this.showModal('modal');
+    },
   },
 
   startApplication: function() {
