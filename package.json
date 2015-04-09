@@ -37,6 +37,8 @@
     "liquid-fire": "git://github.com/ef4/liquid-fire"
   },
   "dependencies": {
-    "ember-localstorage-adapter": "^0.5.2"
+    "ember-localstorage-adapter": "^0.5.2",
+    "request": "^2.55.0",
+    "request-progress": "^0.3.1"
   }
 }
