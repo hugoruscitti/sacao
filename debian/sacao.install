@@ -1,4 +1,6 @@
-dist/* usr/share/TXT_NOMBRE/dist
-bin/TXT_NOMBRE usr/bin/
-debian/TXT_NOMBRE.desktop /usr/share/applications
-debian/TXT_NOMBRE.svg /usr/share/icons/hicolor/scalable/apps
+dist/* usr/share/sacao/dist
+node_modules/request-progress usr/share/sacao/
+node_modules/request usr/share/sacao/
+bin/sacao usr/bin/
+debian/sacao.desktop /usr/share/applications
+debian/sacao.svg /usr/share/icons/hicolor/scalable/apps

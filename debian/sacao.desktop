@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
-Name=TXT_NOMBRE
+Name=sacao
 Comment=Comment
-Exec=/usr/bin/TXT_NOMBRE
+Exec=/usr/bin/sacao
 Terminal=false
 Type=Application
-Icon=TXT_NOMBRE
+Icon=sacao
 Categories=GNOME;GTK;Huayra;Network;
