@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  updates: -3,
+  updates: 0,
   storeService: null,
+  task: 0,
 
   // Función que asocia el store para acceder a los
   // datos de la aplicación. Lo invoca controlador
@@ -12,16 +13,6 @@ export default Ember.Service.extend({
 
     this.updateUpdatesCounter();
   },
-
-  /*
-  startService: function() {
-
-    setInterval(function() {
-      this.incrementProperty('updates');
-    }.bind(this), 1000);
-
-  }.on('init'),
-  */
 
   updateUpdatesCounter: function() {
     console.log("Consultando cantidad de tareas en estado 'running' ...");
@@ -33,14 +24,15 @@ export default Ember.Service.extend({
     this.get('storeService')
       .filter('task', only_running_filter)
       .then(function(data) {
+        this.set('task', data.get('length'));
+      }.bind(this));
 
-      this.set('updates', data.get('length'));
 
-      setTimeout(function() {
-        this.updateUpdatesCounter();
-      }.bind(this), 2000);
+    // Solicita volver a actualizar los contadores.
+    setTimeout(function() {
+      this.updateUpdatesCounter();
+    }.bind(this), 2000);
 
-    }.bind(this));
   },
 
 });

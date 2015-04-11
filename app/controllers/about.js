@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
+    
+    abrirModalNuevo: function() {
+      this.showModal('modal');
+    },
+
     testDownload: function() {
       var url = 'http://104.131.245.133:9841/uploads/roms/ac814950da731563049e10843678cd94.zip';
 

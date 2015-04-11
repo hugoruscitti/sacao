@@ -15,10 +15,15 @@
         {{#link-to "settings" tagName='li'}}<a href>Configuración</a>{{/link-to}}
         {{#link-to "store" tagName='li'}}<a href>Instalar
 
-            {{#sacao-updates}}{{/sacao-updates}}
+            {{#sacao-notification-updates}}{{/sacao-notification-updates}}
 
         </a>{{/link-to}}
-        {{#link-to "tasks" tagName='li'}}<a href>Tareas</a>{{/link-to}}
+
+        {{#link-to "tasks" tagName='li'}}<a href>Tareas
+
+            {{#sacao-notification-task}}{{/sacao-notification-task}}
+
+        </a>{{/link-to}}
         {{#link-to "about" tagName='li'}}<a href>Acerca de ...</a>{{/link-to}}
 
       </ul>
@@ -29,11 +34,6 @@
 
 <div class="container-fluid">
   {{liquid-outlet class="demo-container"}}
-</div>
-
-
-<div>
-  <button {{action "abrirModalNuevo"}} class='btn btn-warning'>Abrir el modal</button>
 </div>
 
 {{outlet 'modal'}}
