@@ -3,14 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   actions: {
-    makeTestTaskRunning: function() {
-      this.store.createRecord('task', {
-          title: 'Descargando Street Fighter 2',
-          game: 'sf2',
-          status: 'running',
-          process: 50,
-      });
-    },
 
     clear: function() {
 
@@ -24,6 +16,16 @@ export default Ember.Controller.extend({
         });
 
       }.bind(this));
+    },
+
+    /*
+    makeTestTaskRunning: function() {
+      this.store.createRecord('task', {
+          title: 'Descargando Street Fighter 2',
+          game: 'sf2',
+          status: 'running',
+          process: 50,
+      });
     },
 
     makeTestTaskDone: function() {
@@ -44,6 +46,7 @@ export default Ember.Controller.extend({
           process: 60,
       });
     },
+    */
 
 
   }

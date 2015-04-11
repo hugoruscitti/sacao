@@ -21,19 +21,27 @@ export default Ember.Controller.extend({
     return this.get('status') === 'error';
   }.property('status'),
 
+  startSearch: function() {
+    this.send('getGameList');
+  }.on('init'),
+
   actions: {
     getGameList: function() {
       this.set('gameList', []);
       this.set('status', 'searching');
 
-      jQuery.get('http://104.131.245.133:9841/games.json')
-        .then(function(data){
-          this.set('gamelist', data.games);
-          this.set('status', 'done');
-        }.bind(this))
-        .fail(function() {
-          this.set('status', 'error');
-        }.bind(this));
+      function search() {
+        jQuery.get('http://104.131.245.133:9841/games.json')
+          .then(function(data){
+            this.set('gamelist', data.games.results);
+            this.set('status', 'done');
+          }.bind(this))
+          .fail(function() {
+            this.set('status', 'error');
+          }.bind(this));
+      }
+
+      setTimeout(search.bind(this), 2000);
     }
   }
 });

@@ -8,7 +8,7 @@
 
 <div>
 {{#if areSearching}}
-  <button disabled class='btn btn-info'><i class="glyphicon glyphicon-refresh spin"></i> Solicitar juegos</button>
+  <button disabled class='btn btn-info'><i class="glyphicon glyphicon-refresh spin"></i> Solicitando juegos ...</button>
 {{else if areNull}}
   <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
 {{else if areDone}}
@@ -23,6 +23,6 @@
 </div>
 
 
-{{#each game in gamelist.results}}
+{{#each game in gamelist}}
   {{#sacao-remoteGame model=game}}{{/sacao-remoteGame}}
 {{/each}}
