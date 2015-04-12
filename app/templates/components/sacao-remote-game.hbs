@@ -1,8 +1,19 @@
-{{img-wrap src=model.image.url alt="Landscape"}}
+{{img-wrap src=model.imageUrl alt="Landscape"}}
 
 <div class='juego-overlay'>
   <div class='juego-title'>
     {{model.title}}
   </div>
-  <a class='btn btn-success' href='http://104.131.245.133:9841/uploads/roms/{{model.file.filename}}'>Instalar</a>
+
+  {{#if processing}}
+    <a class='btn btn-success' disabled><i class="glyphicon glyphicon-refresh spin"></i> Instalando</a>
+  {{else}}
+    {{#if installed}}
+      <a class='btn btn-success' disabled>✓ instalado</a>
+    {{else}}
+      <a class='btn btn-success' {{action "download"}}>Instalar</a>
+    {{/if}}
+
+  {{/if}}
+
 </div>

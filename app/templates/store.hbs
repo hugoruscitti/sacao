@@ -4,25 +4,23 @@
 <p>Desde esta sección se pueden importar y descargar juegos
   desde nuestra base de datos.</p>
 
-
-
 <div>
-{{#if areSearching}}
-  <button disabled class='btn btn-info'><i class="glyphicon glyphicon-refresh spin"></i> Solicitando juegos ...</button>
-{{else if areNull}}
-  <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
-{{else if areDone}}
-  <button {{action 'getGameList'}} class='btn btn-info'> Volver a solicitar juegos</button>
-{{else if hasError}}
-  <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
+  {{#if areSearching}}
+    <button disabled class='btn btn-info'><i class="glyphicon glyphicon-refresh spin"></i> Solicitando juegos ...</button>
+  {{else if areNull}}
+    <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
+  {{else if areDone}}
+    <button {{action 'getGameList'}} class='btn btn-info'> Volver a solicitar juegos</button>
+  {{else if hasError}}
+    <button {{action 'getGameList'}} class='btn btn-info'> Solicitar juegos</button>
 
-  <p>
-    <div class='alert alert-warning'>Ha ocurrido un error, por favor vuelva a intentarlo conectado a Internet.</div>
-  </p>
-{{/if}}
+    <p>
+      <div class='alert alert-warning'>Ha ocurrido un error, por favor vuelva a intentarlo conectado a Internet.</div>
+    </p>
+  {{/if}}
 </div>
 
 
-{{#each game in gamelist}}
-  {{#sacao-remoteGame model=game}}{{/sacao-remoteGame}}
+{{#each model as |m|}}
+  {{#sacao-remoteGame store=store model=m}}{{/sacao-remoteGame}}
 {{/each}}
