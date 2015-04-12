@@ -1,12 +1,18 @@
 import Ember from 'ember';
 
 var fs = require('fs');
-var request = require('request');
-var progress = require('request-progress');
+var path = require('path');
+
+
+var ROMS_PATH = ".sacao/roms";
+var SCREENSHOTS_PATH = ".sacao/screenshots";
+
 
 export default Ember.Component.extend({
   tagName: 'div',
   classNames: ['juego'],
+
+  request: Ember.inject.service(),
 
   processing: function() {
     return (this.get('model.status') === "downloading");
@@ -16,10 +22,15 @@ export default Ember.Component.extend({
     return (this.get('model.status') === "installed");
   }.property('model.status'),
 
+
   actions: {
     download: function() {
       var controller = this;
       var url = this.get('model.url');
+      var image_url = this.get('model.imageUrl');
+
+      var destination_path = path.join(process.env.HOME, ROMS_PATH, this.get('model.originalname'));
+      var screenshots_path = path.join(process.env.HOME, SCREENSHOTS_PATH, this.get('model.originalname').replace('.zip', '.png'));
 
       var task = this.store.createRecord('task', {
         title: 'Descargando ' + this.get('model.nick'),
@@ -30,26 +41,37 @@ export default Ember.Component.extend({
 
       this.set('model.status', 'downloading');
 
-      progress(request(url), {
-        throttle: 10,
-        delay: 10
-      })
-      .on('progress', function (state) {
+      function on_progress(state) {
         task.set('process', state.percent);
-      })
-      .on('error', function (err) {
-        task.set('status', 'error');
-      })
-      .pipe(fs.createWriteStream('doodle.png'))
-      .on('error', function (err) {
-        task.set('status', 'error');
-      })
-      .on('close', function (err) {
+      }
+
+      function on_success(data) {
         task.set('process', 100);
         task.set('status', 'done');
-
         controller.set('model.status', 'installed');
-      });
+      }
+
+      function on_error(err) {
+        task.set('status', 'error');
+        controller.set('model.status', 'available');
+        controller.wuphf.danger(err.message);
+        console.error(err);
+      }
+
+      // Intenta bajar la captura de pantalla y
+      // luego el archivo .zip del juego.
+      controller.get('request')
+        .download(image_url, null, screenshots_path)
+        .then(function() {
+
+          controller.get('request')
+            .download(url, on_progress, destination_path)
+            .then(on_success, on_error);
+
+        }, on_error);
+
+
+
     }
   }
 });

@@ -34,6 +34,7 @@
     "ember-export-application-global": "^1.0.2",
     "ember-img-manager": "0.0.12",
     "ember-modals": "0.3.6",
+    "ember-wuphf": "0.0.2",
     "liquid-fire": "git://github.com/ef4/liquid-fire"
   },
   "dependencies": {

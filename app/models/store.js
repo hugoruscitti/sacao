@@ -9,6 +9,6 @@ export default DS.Model.extend({
   imageUrl: DS.attr('string'),
   nick: DS.attr('string'),
   needUnzip: DS.attr('boolean'),
-  state: DS.attr('string'),
+  state: DS.attr('string'), // installed | downloading |  available
   visible: DS.attr('boolean')
 });
