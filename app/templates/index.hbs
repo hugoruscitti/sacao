@@ -1,5 +1,9 @@
 <h1>Mis Juegos</h1>
 
+<div>
+  <button class='btn btn-success' {{action "refresh"}}>Actualizar</button>
+</div>
+
 {{#each model as |p|}}
   {{#sacao-localGame model=p}}{{/sacao-localGame}}
 {{else}}

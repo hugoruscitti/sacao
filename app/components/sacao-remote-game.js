@@ -26,6 +26,7 @@ export default Ember.Component.extend({
   actions: {
     download: function() {
       var controller = this;
+      var id = this.get('model.id');
       var url = this.get('model.url');
       var image_url = this.get('model.imageUrl');
 
@@ -49,6 +50,13 @@ export default Ember.Component.extend({
         task.set('process', 100);
         task.set('status', 'done');
         controller.set('model.status', 'installed');
+
+        controller.store.createRecord('game', {
+          title: controller.get('model.title'),
+          image: "file://" + screenshots_path,
+          nick: controller.get('model.nick'),
+        }).save();
+
       }
 
       function on_error(err) {
