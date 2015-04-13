@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 var request = require('request');
+var fs = require('fs');
 var progress = require('request-progress');
 
 export default Ember.Service.extend({
@@ -14,8 +15,9 @@ export default Ember.Service.extend({
         delay: 10
       })
       .on('progress', function (state) {
-        if (on_progress)
+        if (on_progress) {
           on_progress(state);
+        }
       })
       .on('error', function (err) {
         reject(err);
@@ -24,8 +26,8 @@ export default Ember.Service.extend({
       .on('error', function (err) {
         reject(err);
       })
-      .on('close', function (err) {
-        resolve({status: 'ok'});
+      .on('close', function (status) {
+        resolve({status: status});
       });
 
     });

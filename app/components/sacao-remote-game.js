@@ -1,6 +1,5 @@
 import Ember from 'ember';
 
-var fs = require('fs');
 var path = require('path');
 
 
@@ -26,7 +25,7 @@ export default Ember.Component.extend({
   actions: {
     download: function() {
       var controller = this;
-      var id = this.get('model.id');
+      //var id = this.get('model.id');
       var url = this.get('model.url');
       var image_url = this.get('model.imageUrl');
 
@@ -46,7 +45,7 @@ export default Ember.Component.extend({
         task.set('process', state.percent);
       }
 
-      function on_success(data) {
+      function on_success() {
         task.set('process', 100);
         task.set('status', 'done');
         controller.set('model.status', 'installed');
