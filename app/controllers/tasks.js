@@ -18,37 +18,6 @@ export default Ember.Controller.extend({
       }.bind(this));
     },
 
-    /*
-    makeTestTaskRunning: function() {
-      this.store.createRecord('task', {
-          title: 'Descargando Street Fighter 2',
-          game: 'sf2',
-          status: 'running',
-          process: 50,
-      });
-    },
-
-    makeTestTaskDone: function() {
-      this.store.createRecord('task', {
-          title: 'Descargando Super Mario',
-          game: 'sm',
-          status: 'done',
-          process: 100,
-      });
-    },
-
-
-    makeTestTaskError: function() {
-      this.store.createRecord('task', {
-          title: 'Descargando Super MeatBoy',
-          game: 'smb',
-          status: 'error',
-          process: 60,
-      });
-    },
-    */
-
-
   }
 
 });
