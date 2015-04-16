@@ -3,8 +3,6 @@ import Ember from 'ember';
 var path = require('path');
 
 
-var ROMS_PATH = ".sacao/roms";
-var SCREENSHOTS_PATH = ".sacao/screenshots";
 
 
 export default Ember.Component.extend({
@@ -21,6 +19,8 @@ export default Ember.Component.extend({
     return (this.get('model.status') === "installed");
   }.property('model.status'),
 
+  settings: Ember.inject.service(),
+
 
   actions: {
     download: function() {
@@ -28,6 +28,9 @@ export default Ember.Component.extend({
       //var id = this.get('model.id');
       var url = this.get('model.url');
       var image_url = this.get('model.imageUrl');
+
+      var ROMS_PATH = this.settings.get_roms_path();
+      var SCREENSHOTS_PATH = this.settings.get_screenshots_path();
 
       var destination_path = path.join(process.env.HOME, ROMS_PATH, this.get('model.originalname'));
       var screenshots_path = path.join(process.env.HOME, SCREENSHOTS_PATH, this.get('model.originalname').replace('.zip', '.png'));

@@ -7,6 +7,25 @@
 
   <div>
 
+
+    <div>
+      ROMS PATH: {{#input value=roms_path}}{{/input}}
+    </div>
+
+    <div>
+      SCREENSHOTS PATH: {{#input value=screenshots_path}}{{/input}}
+    </div>
+
+    <br/>
+    <br/>
+
+    {{#if canSave}}
+      <button class='btn btn-success' {{action 'save'}}>Guardar</button>
+    {{else}}
+      <button disabled class='btn btn-success'>Guardar</button>
+    {{/if}}
+
+
     {{#if borrando}}
       <button disabled class='btn btn-danger'><i class="glyphicon glyphicon-refresh spin"></i> Limpiando ...</button>
     {{else}}
